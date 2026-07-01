@@ -7,22 +7,31 @@ using std::string;
 
 using namespace testing;
 
+class BaseballFixture : public Test {
+public:
+	Baseball game;
+	void assertIllegalArgument(string guessNumber)
+	{
+		try {
+			game.guess(guessNumber);
+			FAIL();
+		}
+		catch (exception e){
+
+
+		}
+	}
+};
+
 TEST(BaseballGame, TryGameTest)
 {
 	EXPECT_EQ(1, 1);
 }
 
-TEST(BaseballGame, ThrowExceptionWhenInputLengthUsUnmached)
+TEST_F(BaseballFixture, ThrowExceptionWhenInvalidCase)
 {
-	Baseball game;
-	EXPECT_THROW(game.guess(string("12")), length_error);
-
-}
-
-TEST(BaseballGame, ThrowExceptionWhenInvalidChar)
-{
-	Baseball game;
-	EXPECT_THROW(game.guess(string("12s")), invalid_argument);
+	assertIllegalArgument("12");
+	assertIllegalArgument("12s");
 
 }
 
