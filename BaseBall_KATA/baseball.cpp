@@ -18,6 +18,12 @@ public:
 			if (ch < '0' || ch > '9')
 				throw invalid_argument("Must be number.");
 		}
+
+		if (guessNumber[0] == guessNumber[1]
+			|| guessNumber[1] == guessNumber[2]
+			|| guessNumber[2] == guessNumber[0]) {
+			throw invalid_argument("Must not have the same number.");
+		}
 		
 	}
 
