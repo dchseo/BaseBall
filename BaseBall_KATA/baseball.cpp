@@ -21,7 +21,7 @@ public:
 		}
 
 		for (char ch : guessNumber) {
-			if (ch >= '0' || ch <= '9') continue;
+			if (ch >= '0' && ch <= '9') continue;
 			throw invalid_argument("Must be number.");
 		}
 
